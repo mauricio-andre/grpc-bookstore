@@ -1,0 +1,7 @@
+Este arquivo README ainda está sendo construído, agradecemos a compreensão
+
+Pontos importantes
+- Arquivos js da pasta proto foram baixados do projeto template
+- Antes de executar qualquer client é necessário iniciar o servidor com `yarn start`
+- As funções do client interno estão comentada, remova o comentário sa função desejada e execute `yarn start`
+- Para ligar o client web é necessário executar `docker-compose up` para acionar o envoy que serve como proxy web/grpc e executar o comando `yarn build:web` para gerar o bundle do projeto web, depois basta abrir o arquivo index.html
