@@ -34,8 +34,8 @@ function DeleteAuthor (database) {
   return (call, callback) => {
     try {
       const {authorId} = call.request;
-      assertAuthor(authorId);
-      database.deleteAuthor(database, authorId);
+      assertAuthor(database, authorId);
+      database.deleteAuthor(authorId);
       database.save();
       return callback(null, {});
     } catch (error) {

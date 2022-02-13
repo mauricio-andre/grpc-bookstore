@@ -128,7 +128,7 @@ message CreateAuthorRequest {
     optional string image_url = 3;
     optional string description = 4;
   }
-  CreateData data = 1;
+  CreateData author = 1;
 }
 
 message CreateAuthorResponse {

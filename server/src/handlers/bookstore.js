@@ -34,8 +34,8 @@ function DeleteBook (database) {
   return (call, callback) => {
     try {
       const {bookId} = call.request;
-      assertBook(bookId);
-      database.deleteBook(database, bookId);
+      assertBook(database, bookId);
+      database.deleteBook(bookId);
       database.save();
       return callback(null, {});
     } catch (error) {
