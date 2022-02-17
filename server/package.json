@@ -3,7 +3,17 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test": "ava --fail-fast -v -T 30s --color",
+    "coverage": "nyc --all --skip-empty ava"
+  },
+  "nyc": {
+    "exclude": [
+      "**/index.js",
+      "**/db.js",
+      "**/server.js",
+      "**/*.test.js"
+    ]
   },
   "keywords": [],
   "author": "mauricio-andre",
@@ -13,6 +23,9 @@
     "@grpc/proto-loader": "^0.6.4"
   },
   "devDependencies": {
-    "google-protobuf": "^3.17.3"
+    "ava": "^4.0.1",
+    "google-protobuf": "^3.17.3",
+    "nyc": "^15.1.0",
+    "sinon": "^13.0.1"
   }
 }
