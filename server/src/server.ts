@@ -1,7 +1,7 @@
 import { Server, ServerCredentials } from '@grpc/grpc-js';
-import { bookstoreImpl, authorImpl } from './handlers';
-import DB from './db';
 import { AuthorsService, BookstoreService } from '../proto/bookstore_grpc_pb';
+import DB from './db';
+import { authorImpl, bookstoreImpl } from './handlers';
 const Database = new DB();
 
 const server = new Server();

@@ -1,5 +1,6 @@
 import { ServerErrorResponse, ServerUnaryCall } from '@grpc/grpc-js';
 import describe from 'ava';
+import { camelCase } from 'change-case';
 import sinon from 'sinon';
 import {
   Author,
@@ -11,7 +12,6 @@ import {
 } from '../proto/bookstore_pb';
 import DB from '../src/db';
 import { getImplementation as booksImpl } from '../src/handlers/bookstore';
-import { camelCase } from 'change-case';
 
 var bookPayload: Book.AsObject = {
   id: 'a06cc684511dfe6856ca0468bd20e1e1667c4dac7299d4274a6cae523d20e1e8',
