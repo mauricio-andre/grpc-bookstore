@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node client.js",
-    "web": "node client-web.js",
     "build:web": "npx webpack ./client-web.js"
   },
   "keywords": [],

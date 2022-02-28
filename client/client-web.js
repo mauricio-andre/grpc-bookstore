@@ -1,5 +1,8 @@
-const { AuthorsClient, BookstoreClient } = require('../proto/bookstore_grpc_web_pb');
-const { GetBookRequest, GetAuthorRequest } = require('../proto/bookstore_pb');;
+const {
+  AuthorsClient,
+  BookstoreClient,
+} = require('../proto/bookstore_grpc_web_pb');
+const { GetBookRequest, GetAuthorRequest } = require('../proto/bookstore_pb');
 const { Empty } = require('google-protobuf/google/protobuf/empty_pb');
 
 const port = 8080;
@@ -19,13 +22,17 @@ bookstoreClient.listBook(new Empty(), {}, (error, response) => {
   document.getElementById('books').appendChild(list);
 });
 
-document.loadBook = (bookId) => {
-  bookstoreClient.getBook(new GetBookRequest().setBookid(bookId), {}, (error, response) => {
-    if (error) return console.log(error);
-    const book = response.getBooks().toObject();
-    const result = document.querySelector('#result>div');
-    result.innerHTML = `<pre>${JSON.stringify(book, null, 2)}</pre>`;
-  });
+document.loadBook = bookId => {
+  bookstoreClient.getBook(
+    new GetBookRequest().setBookid(bookId),
+    {},
+    (error, response) => {
+      if (error) return console.log(error);
+      const book = response.getBooks().toObject();
+      const result = document.querySelector('#result>div');
+      result.innerHTML = `<pre>${JSON.stringify(book, null, 2)}</pre>`;
+    },
+  );
 };
 
 authorsClient.listAuthor(new Empty(), {}, (error, response) => {
@@ -41,11 +48,15 @@ authorsClient.listAuthor(new Empty(), {}, (error, response) => {
   document.getElementById('authors').appendChild(list);
 });
 
-document.loadAuthor = (authorId) => {
-  authorsClient.getAuthor(new GetAuthorRequest().setAuthorid(authorId), {}, (error, response) => {
-    if (error) return console.log(error);
-    const author = response.getAuthors().toObject();
-    const result = document.querySelector('#result>div');
-    result.innerHTML = `<pre>${JSON.stringify(author, null, 2)}</pre>`;
-  });
+document.loadAuthor = authorId => {
+  authorsClient.getAuthor(
+    new GetAuthorRequest().setAuthorid(authorId),
+    {},
+    (error, response) => {
+      if (error) return console.log(error);
+      const author = response.getAuthors().toObject();
+      const result = document.querySelector('#result>div');
+      result.innerHTML = `<pre>${JSON.stringify(author, null, 2)}</pre>`;
+    },
+  );
 };
